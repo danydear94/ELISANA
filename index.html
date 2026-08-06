@@ -3,83 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELISANA | Naturaleza que Sana</title>
+    <title>ELISANA | Saludy Bienestar Natural</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./logo Eli.png">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-main: #f7f5f0;
-            --bg-card: #ffffff;
-            --olive-dark: #2c382b;
-            --olive-medium: #4a5d48;
-            --olive-light: #8a9a86;
-            --sand-soft: #eae5d9;
-            --accent-gold: #c29b38;
-            --text-dark: #1f241e;
-            --text-muted: #61685f;
-            --border-subtle: #e5e0d4;
-            --shadow-soft: 0 12px 35px rgba(44, 56, 43, 0.06);
-            --radius-lg: 20px;
-            --radius-md: 12px;
+            --emerald-main: #0e3b2e;
+            --emerald-light: #185241;
+            --gold-accent: #d4a359;
+            --gold-subtle: #f7f1e5;
+            --bg-body: #f4f6f5;
+            --card-bg: #ffffff;
+            --text-dark: #111827;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+            --radius-main: 16px;
         }
 
-        * {
+        /* Prevención estricta de desbordamiento horizontal */
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
         }
 
-        body {
-            background-color: var(--bg-main);
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
             color: var(--text-dark);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            line-height: 1.5;
         }
 
-        /* Header Layout */
+        /* Header / Navbar */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border-subtle);
-            padding: 16px 5%;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            padding: 18px 20px;
             position: sticky;
             top: 0;
             z-index: 100;
+            width: 100%;
         }
 
         .header-container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            width: 100%;
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 18px;
             text-decoration: none;
+            max-width: 100%;
         }
 
         /* Logo ampliado */
         .brand-img {
-            height: 64px;
+            height: 85px;
             width: auto;
+            max-width: 100%;
             object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        .brand:hover .brand-img {
-            transform: scale(1.03);
+            flex-shrink: 0;
         }
 
         .brand-text {
@@ -88,176 +85,155 @@
         }
 
         .brand-logo {
-            font-family: 'Marcellus', serif;
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: var(--olive-dark);
-            letter-spacing: 2px;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 800;
+            color: var(--emerald-main);
+            letter-spacing: 1.5px;
             line-height: 1;
         }
 
         .brand-slogan {
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--olive-medium);
-            letter-spacing: 2.5px;
+            font-size: clamp(0.68rem, 2vw, 0.8rem);
+            font-weight: 700;
+            color: var(--gold-accent);
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-top: 4px;
+            margin-top: 5px;
         }
 
-        /* Hero Section */
+        /* Hero Banner */
         .hero {
-            background: radial-gradient(circle at 50% 30%, #3a4a39 0%, #202b1f 100%);
-            color: #f7f5f0;
-            padding: 70px 20px 80px;
+            background: linear-gradient(135deg, var(--emerald-main) 0%, var(--emerald-light) 100%);
+            color: #ffffff;
+            padding: 50px 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle, rgba(194, 155, 56, 0.08) 0%, transparent 70%);
-            pointer-events: none;
+            width: 100%;
         }
 
         .hero-content {
-            max-width: 720px;
+            max-width: 750px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
         }
 
-        .hero-tag {
+        .hero-pill {
             display: inline-block;
+            background: rgba(212, 163, 89, 0.2);
+            border: 1px solid var(--gold-accent);
+            color: var(--gold-accent);
             font-size: 0.75rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-gold);
-            margin-bottom: 12px;
-            background: rgba(194, 155, 56, 0.12);
-            padding: 4px 14px;
+            padding: 6px 16px;
             border-radius: 30px;
-            border: 1px solid rgba(194, 155, 56, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
         }
 
         .hero h1 {
-            font-family: 'Marcellus', serif;
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            font-weight: 400;
-            margin-bottom: 16px;
+            font-size: clamp(1.75rem, 5vw, 2.8rem);
+            font-weight: 800;
             line-height: 1.2;
-            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+            word-wrap: break-word;
         }
 
         .hero p {
-            font-size: clamp(0.95rem, 2vw, 1.15rem);
-            color: var(--sand-soft);
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            color: #e2e8f0;
             font-weight: 300;
-            max-width: 600px;
+            max-width: 620px;
             margin: 0 auto;
         }
 
-        /* Main Catalog Section */
+        /* Contenedor Principal */
         main {
-            flex: 1;
             max-width: 1200px;
             width: 100%;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 40px 20px 60px;
         }
 
         .section-header {
-            margin-bottom: 45px;
             text-align: center;
+            margin-bottom: 35px;
         }
 
         .section-title {
-            font-family: 'Marcellus', serif;
-            font-size: 2rem;
-            font-weight: 400;
-            color: var(--olive-dark);
-            letter-spacing: 1px;
-            margin-bottom: 8px;
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            font-weight: 800;
+            color: var(--emerald-main);
+            letter-spacing: -0.5px;
         }
 
         .section-subtitle {
             font-size: 0.95rem;
             color: var(--text-muted);
-            font-weight: 400;
+            margin-top: 6px;
         }
 
         /* Grid de Productos */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 350px));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 340px));
+            gap: 25px;
             justify-content: center;
+            width: 100%;
         }
 
-        /* Product Card Design */
+        /* Tarjeta de Producto */
         .product-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-subtle);
+            background: var(--card-bg);
+            border-radius: var(--radius-main);
+            border: 1px solid var(--border-color);
             overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: var(--shadow-card);
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
             position: relative;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(44, 56, 43, 0.12);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.12);
         }
 
-        .badge-tag {
+        .badge-discount {
             position: absolute;
-            top: 16px;
-            left: 16px;
-            background: var(--olive-dark);
-            color: var(--sand-soft);
-            font-size: 0.68rem;
+            top: 14px;
+            left: 14px;
+            background: var(--emerald-main);
+            color: #ffffff;
+            font-size: 0.7rem;
             font-weight: 700;
-            padding: 5px 12px;
-            border-radius: 20px;
+            padding: 4px 10px;
+            border-radius: 6px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             z-index: 2;
         }
 
         .product-image-container {
             width: 100%;
-            height: 300px;
-            background: radial-gradient(circle, #f0ebe1 0%, #e5ded2 100%);
+            height: 260px;
+            background: #fafafa;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 25px;
-            position: relative;
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .product-image {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
-            transition: transform 0.4s ease;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.08));
-        }
-
-        .product-card:hover .product-image {
-            transform: scale(1.06);
         }
 
         .product-details {
-            padding: 25px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -266,96 +242,99 @@
         .product-category {
             font-size: 0.72rem;
             font-weight: 700;
-            color: var(--accent-gold);
+            color: var(--gold-accent);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 8px;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
         }
 
         .product-title {
-            font-family: 'Marcellus', serif;
-            font-size: 1.3rem;
-            font-weight: 400;
-            color: var(--olive-dark);
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
             line-height: 1.3;
         }
 
         .product-description {
             font-size: 0.88rem;
             color: var(--text-muted);
-            margin-bottom: 24px;
-            line-height: 1.5;
+            margin-bottom: 20px;
+            line-height: 1.45;
             flex-grow: 1;
-            font-weight: 300;
         }
 
-        .product-action {
-            border-top: 1px solid var(--border-subtle);
-            padding-top: 18px;
-        }
-
-        .btn-view {
-            background: var(--olive-dark);
-            color: var(--sand-soft);
-            font-size: 0.82rem;
+        .btn-action {
+            background: var(--emerald-main);
+            color: #ffffff;
+            font-size: 0.85rem;
             font-weight: 700;
-            padding: 12px 20px;
-            border-radius: var(--radius-md);
+            padding: 12px;
+            border-radius: 8px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background 0.25s ease;
-            width: 100%;
+            letter-spacing: 0.5px;
             text-align: center;
-            display: block;
+            transition: background 0.2s ease;
         }
 
-        .product-card:hover .btn-view {
-            background: var(--olive-medium);
+        .product-card:hover .btn-action {
+            background: var(--emerald-light);
         }
 
         /* Footer */
         footer {
             background: #ffffff;
-            border-top: 1px solid var(--border-subtle);
-            padding: 40px 20px;
+            border-top: 1px solid var(--border-color);
+            padding: 30px 20px;
             text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 14px;
+            margin-top: auto;
+            width: 100%;
         }
 
         .footer-logo {
-            height: 50px;
-            opacity: 0.85;
+            height: 60px;
+            margin-bottom: 12px;
+            opacity: 0.9;
         }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 600px) {
-            .brand-img {
-                height: 52px;
+        .footer-text {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* Ajustes específicos para móviles */
+        @media (max-width: 580px) {
+            header {
+                padding: 14px 12px;
             }
 
-            .brand-logo {
-                font-size: 1.4rem;
+            .brand {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+
+            .brand-img {
+                height: 70px;
             }
 
             .hero {
-                padding: 50px 15px 60px;
+                padding: 35px 15px;
             }
 
             main {
-                padding: 40px 15px;
+                padding: 25px 12px 40px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 100%;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header / Navbar -->
     <header>
         <div class="header-container">
             <a href="https://elisana.store/" class="brand">
@@ -371,34 +350,32 @@
     <!-- Hero Banner -->
     <section class="hero">
         <div class="hero-content">
-            <span class="hero-tag">Nutrición Holística</span>
-            <h1>Bienvenido a ELISANA</h1>
-            <p>Formulaciones botánicas y científicas creadas para restaurar tu bienestar esencial desde el interior.</p>
+            <span class="hero-pill">Línea de Nutrición Premium</span>
+            <h1>Regenera tu Cuerpo desde el Interior</h1>
+            <p>Fórmulas avanzadas desarrolladas para maximizar tu salud, rejuvenecer tu piel y fortalecer tus articulaciones con ingredientes de origen natural.</p>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Sección Principal -->
     <main>
         <div class="section-header">
-            <h2 class="section-title">Catálogo Esencial</h2>
-            <p class="section-subtitle">Selección exclusiva para la renovación de tu salud integral</p>
+            <h2 class="section-title">Productos Destacados</h2>
+            <p class="section-subtitle">Descubre soluciones nutricionales de máxima absorción y efectividad</p>
         </div>
 
         <div class="products-grid">
             
             <!-- Producto 1: Multi Collagen Peptides -->
             <a href="./Multi-Collagen-Peptides/" class="product-card">
-                <span class="badge-tag">Destacado</span>
+                <span class="badge-discount">Más Vendido</span>
                 <div class="product-image-container">
-                    <img src="https://i.ibb.co/qZbyG9k/763298616-1048934630867909-5532902024130268038-n-1.png" alt="Multi Collagen Peptides" class="product-image">
+                    <img src="https://i.ibb.co/qZbyG9k/763298616-1048934630867909-5532902024130268038-n-1.png" alt="Multi Collagen Peptides ELISANA" class="product-image">
                 </div>
                 <div class="product-details">
-                    <span class="product-category">Suplemento Avanzado</span>
-                    <h3 class="product-title">Multi Collagen Peptides</h3>
-                    <p class="product-description">Sinergia con 5 tipos de colágeno, Biotina, Vitamina C y Ácido Hialurónico para piel, cabello y articulaciones.</p>
-                    <div class="product-action">
-                        <span class="btn-view">Explorar Producto</span>
-                    </div>
+                    <span class="product-category">Regeneración Integral</span>
+                    <h3 class="product-title">Multi-Collagen Peptides</h3>
+                    <p class="product-description">Potente combinación de 5 tipos de colágeno reforzado con Biotina, Vitamina C y Ácido Hialurónico. Aumenta la firmeza de la piel y cuida tus articulaciones.</p>
+                    <div class="btn-action">Ver Detalles y Comprar</div>
                 </div>
             </a>
 
@@ -408,7 +385,7 @@
     <!-- Footer -->
     <footer>
         <img src="./logo Eli.png" alt="ELISANA Logo" class="footer-logo">
-        <p>&copy; 2026 ELISANA - Naturaleza que Sana. Todos los derechos reservados.</p>
+        <p class="footer-text">&copy; 2026 ELISANA - Naturaleza que Sana. Todos los derechos reservados.</p>
     </footer>
 
 </body>
