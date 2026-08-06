@@ -9,20 +9,23 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #2d5a27;
-            --primary-dark: #1e3d1a;
-            --accent: #4a153b;
-            --accent-light: #d883b7;
-            --bg-body: #fbf9f6;
-            --card-bg: #ffffff;
-            --text-main: #2c302e;
-            --text-muted: #66706a;
-            --border: #e2ede5;
-            --shadow: 0 10px 30px rgba(0,0,0,0.05);
-            --radius: 16px;
+            --bg-main: #f7f5f0;
+            --bg-card: #ffffff;
+            --olive-dark: #2c382b;
+            --olive-medium: #4a5d48;
+            --olive-light: #8a9a86;
+            --sand-soft: #eae5d9;
+            --accent-gold: #c29b38;
+            --text-dark: #1f241e;
+            --text-muted: #61685f;
+            --border-subtle: #e5e0d4;
+            --shadow-soft: 0 12px 35px rgba(44, 56, 43, 0.06);
+            --radius-lg: 20px;
+            --radius-md: 12px;
         }
 
         * {
@@ -33,23 +36,23 @@
         }
 
         body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
+            background-color: var(--bg-main);
+            color: var(--text-dark);
             line-height: 1.6;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* Header / Navbar */
+        /* Header Layout */
         header {
-            background: #ffffff;
-            border-bottom: 1px solid var(--border);
-            padding: 12px 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 16px 5%;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .header-container {
@@ -63,14 +66,20 @@
         .brand {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
             text-decoration: none;
         }
 
+        /* Logo ampliado */
         .brand-img {
-            height: 48px;
+            height: 64px;
             width: auto;
             object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .brand:hover .brand-img {
+            transform: scale(1.03);
         }
 
         .brand-text {
@@ -79,47 +88,77 @@
         }
 
         .brand-logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            font-family: 'Marcellus', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--olive-dark);
+            letter-spacing: 2px;
             line-height: 1;
         }
 
         .brand-slogan {
-            font-size: 0.68rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            letter-spacing: 1.5px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--olive-medium);
+            letter-spacing: 2.5px;
             text-transform: uppercase;
-            margin-top: 3px;
+            margin-top: 4px;
         }
 
-        /* Hero Banner */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1e3d1a 0%, #2d5a27 100%);
-            color: white;
-            padding: 60px 20px;
+            background: radial-gradient(circle at 50% 30%, #3a4a39 0%, #202b1f 100%);
+            color: #f7f5f0;
+            padding: 70px 20px 80px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle, rgba(194, 155, 56, 0.08) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 720px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+            background: rgba(194, 155, 56, 0.12);
+            padding: 4px 14px;
+            border-radius: 30px;
+            border: 1px solid rgba(194, 155, 56, 0.25);
         }
 
         .hero h1 {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            font-weight: 800;
-            margin-bottom: 12px;
+            font-family: 'Marcellus', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 400;
+            margin-bottom: 16px;
             line-height: 1.2;
+            letter-spacing: 0.5px;
         }
 
         .hero p {
             font-size: clamp(0.95rem, 2vw, 1.15rem);
-            opacity: 0.9;
-            font-weight: 400;
+            color: var(--sand-soft);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Main Catalog Section */
@@ -128,43 +167,45 @@
             max-width: 1200px;
             width: 100%;
             margin: 0 auto;
-            padding: 50px 20px;
+            padding: 60px 20px;
         }
 
         .section-header {
-            margin-bottom: 35px;
+            margin-bottom: 45px;
             text-align: center;
         }
 
         .section-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-family: 'Marcellus', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--olive-dark);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
         }
 
         .section-subtitle {
             font-size: 0.95rem;
             color: var(--text-muted);
+            font-weight: 400;
         }
 
         /* Grid de Productos */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 340px));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 350px));
+            gap: 35px;
             justify-content: center;
         }
 
-        /* Card de Producto */
+        /* Product Card Design */
         .product-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             text-decoration: none;
             color: inherit;
             display: flex;
@@ -173,33 +214,33 @@
         }
 
         .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(44, 56, 43, 0.12);
         }
 
-        .badge-new {
+        .badge-tag {
             position: absolute;
-            top: 15px;
-            left: 15px;
-            background: var(--primary);
-            color: white;
-            font-size: 0.7rem;
+            top: 16px;
+            left: 16px;
+            background: var(--olive-dark);
+            color: var(--sand-soft);
+            font-size: 0.68rem;
             font-weight: 700;
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 20px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             z-index: 2;
         }
 
         .product-image-container {
             width: 100%;
-            height: 280px;
-            background: #f7f3f5;
+            height: 300px;
+            background: radial-gradient(circle, #f0ebe1 0%, #e5ded2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 25px;
             position: relative;
         }
 
@@ -207,88 +248,108 @@
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.08));
         }
 
         .product-card:hover .product-image {
-            transform: scale(1.04);
+            transform: scale(1.06);
         }
 
         .product-details {
-            padding: 22px;
+            padding: 25px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
         .product-category {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--accent-gold);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
         }
 
         .product-title {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--text-main);
-            margin-bottom: 8px;
+            font-family: 'Marcellus', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--olive-dark);
+            margin-bottom: 10px;
             line-height: 1.3;
         }
 
         .product-description {
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
-            margin-bottom: 20px;
-            line-height: 1.4;
+            margin-bottom: 24px;
+            line-height: 1.5;
             flex-grow: 1;
+            font-weight: 300;
         }
 
         .product-action {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-top: 1px solid var(--border);
-            padding-top: 15px;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 18px;
         }
 
         .btn-view {
-            background: var(--primary);
-            color: white;
-            font-size: 0.85rem;
+            background: var(--olive-dark);
+            color: var(--sand-soft);
+            font-size: 0.82rem;
             font-weight: 700;
-            padding: 10px 18px;
-            border-radius: 30px;
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: background 0.2s;
+            letter-spacing: 1px;
+            transition: background 0.25s ease;
             width: 100%;
             text-align: center;
+            display: block;
         }
 
         .product-card:hover .btn-view {
-            background: var(--primary-dark);
+            background: var(--olive-medium);
         }
 
         /* Footer */
         footer {
             background: #ffffff;
-            border-top: 1px solid var(--border);
-            padding: 30px 20px;
+            border-top: 1px solid var(--border-subtle);
+            padding: 40px 20px;
             text-align: center;
             font-size: 0.85rem;
             color: var(--text-muted);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 14px;
         }
 
         .footer-logo {
-            height: 35px;
-            opacity: 0.8;
+            height: 50px;
+            opacity: 0.85;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 600px) {
+            .brand-img {
+                height: 52px;
+            }
+
+            .brand-logo {
+                font-size: 1.4rem;
+            }
+
+            .hero {
+                padding: 50px 15px 60px;
+            }
+
+            main {
+                padding: 40px 15px;
+            }
         }
     </style>
 </head>
@@ -310,32 +371,33 @@
     <!-- Hero Banner -->
     <section class="hero">
         <div class="hero-content">
+            <span class="hero-tag">Nutrición Holística</span>
             <h1>Bienvenido a ELISANA</h1>
-            <p>Descubre soluciones naturales formuladas para restaurar tu bienestar y vitalidad desde adentro hacia afuera.</p>
+            <p>Formulaciones botánicas y científicas creadas para restaurar tu bienestar esencial desde el interior.</p>
         </div>
     </section>
 
     <!-- Main Content -->
     <main>
         <div class="section-header">
-            <h2 class="section-title">Nuestros Productos</h2>
-            <p class="section-subtitle">Fórmulas avanzadas seleccionadas para tu salud integral</p>
+            <h2 class="section-title">Catálogo Esencial</h2>
+            <p class="section-subtitle">Selección exclusiva para la renovación de tu salud integral</p>
         </div>
 
         <div class="products-grid">
             
             <!-- Producto 1: Multi Collagen Peptides -->
-            <a href="https://elisana.store/Multi-Collagen-Peptides/" class="product-card">
-                <span class="badge-new">Destacado</span>
+            <a href="./Multi-Collagen-Peptides/" class="product-card">
+                <span class="badge-tag">Destacado</span>
                 <div class="product-image-container">
                     <img src="https://i.ibb.co/qZbyG9k/763298616-1048934630867909-5532902024130268038-n-1.png" alt="Multi Collagen Peptides" class="product-image">
                 </div>
                 <div class="product-details">
-                    <span class="product-category">Suplemento Nutricional</span>
+                    <span class="product-category">Suplemento Avanzado</span>
                     <h3 class="product-title">Multi Collagen Peptides</h3>
-                    <p class="product-description">Fórmula avanzada con 5 tipos de péptidos de colágeno, Biotina, Vitamina C y Ácido Hialurónico.</p>
+                    <p class="product-description">Sinergia con 5 tipos de colágeno, Biotina, Vitamina C y Ácido Hialurónico para piel, cabello y articulaciones.</p>
                     <div class="product-action">
-                        <span class="btn-view">Ver Producto</span>
+                        <span class="btn-view">Explorar Producto</span>
                     </div>
                 </div>
             </a>
