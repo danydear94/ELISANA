@@ -3,27 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi Collagen Peptides | Nutrición Avanzada</title>
+    <title>ELISANA | Naturaleza que Sana</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./logo Eli.png">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4a153b;
-            --primary-light: #6a2153;
-            --accent-pink: #d883b7;
-            --accent-green: #25D366;
-            --soft-pink: #fce8f3; 
-            --soft-cream: #fff5fa;
-            --bg-cream: #fbf8f5;
+            --primary: #2d5a27;
+            --primary-dark: #1e3d1a;
+            --accent: #4a153b;
+            --accent-light: #d883b7;
+            --bg-body: #fbf9f6;
             --card-bg: #ffffff;
-            --text-dark: #22121e;
-            --text-muted: #62525e;
-            --border-light: #ebdce6;
-            --shadow: 0 8px 20px rgba(74, 21, 59, 0.06);
-            --radius-md: 12px;
-            --radius-lg: 20px;
+            --text-main: #2c302e;
+            --text-muted: #66706a;
+            --border: #e2ede5;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --radius: 16px;
         }
 
         * {
@@ -31,888 +30,324 @@
             margin: 0;
             padding: 0;
             font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-            -webkit-tap-highlight-color: transparent;
         }
 
-        html, body {
-            width: 100%;
-            max-width: 100%;
-            overflow-x: hidden;
-            background-color: var(--bg-cream);
-            color: var(--text-dark);
-            line-height: 1.5;
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Top Navigation Header */
+        /* Header / Navbar */
         header {
             background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            padding: 12px 5%;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid var(--border-light);
-            padding: 14px 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-            width: 100%;
         }
 
-        .logo {
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .brand {
             display: flex;
             align-items: center;
-            gap: 8px;
-        }
-
-        .logo-dot {
-            width: 10px;
-            height: 10px;
-            background: var(--accent-pink);
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        nav {
-            display: none;
-            gap: 25px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--primary-light);
-        }
-
-        @media (min-width: 850px) {
-            nav {
-                display: flex;
-            }
-        }
-
-        .mobile-menu-btn {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
-            display: block;
-        }
-
-        @media (min-width: 850px) {
-            .mobile-menu-btn {
-                display: none;
-            }
-        }
-
-        /* Hero Banner Section */
-        .hero {
-            background: linear-gradient(135deg, #3b102f 0%, #5b1d48 50%, #421336 100%);
-            color: white;
-            text-align: center;
-            padding: 40px 15px 50px;
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .hero h1 {
-            font-size: clamp(1.4rem, 5vw, 2.6rem);
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            line-height: 1.25;
-            max-width: 800px;
-            margin: 0 auto 15px;
-            padding: 0 10px;
-            word-wrap: break-word;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(0.9rem, 3vw, 1.15rem);
-            color: #ebdce6;
-            max-width: 650px;
-            margin: 0 auto 25px;
-            line-height: 1.4;
-            font-weight: 400;
-        }
-
-        /* Hero Image con EFECTO ZOOM Y DESVANECIMIENTO INTERMITENTE */
-        .hero-img-container {
-            position: relative;
-            width: 100%;
-            max-width: 420px;
-            margin: 0 auto 25px;
-            display: inline-block;
-        }
-
-        .hero-product-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            position: relative;
-            z-index: 2;
-            -webkit-mask-image: radial-gradient(ellipse 90% 65% at 50% 50%, #000 35%, transparent 85%);
-            mask-image: radial-gradient(ellipse 90% 65% at 50% 50%, #000 35%, transparent 85%);
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
-        }
-
-        /* Estrellitas Animadas */
-        .sparkles-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 3;
-            pointer-events: none;
-        }
-
-        .sparkle-item {
-            position: absolute;
-            color: #ffd700;
-            font-size: 0.75rem;
-            text-shadow: 0 0 6px rgba(255, 215, 0, 0.9), 0 0 10px rgba(255, 255, 255, 0.8);
-            opacity: 0;
-            will-change: transform, opacity;
-            animation: zoomFadeSparkle 2.4s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        @keyframes zoomFadeSparkle {
-            0% { transform: scale(0) rotate(0deg); opacity: 0; }
-            30% { transform: scale(1.1) rotate(15deg); opacity: 1; }
-            70% { transform: scale(1.3) rotate(30deg); opacity: 0.8; }
-            100% { transform: scale(1.6) rotate(45deg); opacity: 0; }
-        }
-
-        .sz-sm { font-size: 0.65rem; }
-        .sz-md { font-size: 0.85rem; }
-        .sz-lg { font-size: 1.05rem; }
-
-        .s1  { top: 5%; left: 12%; animation-delay: 0.0s; }
-        .s2  { top: 18%; right: 8%; animation-delay: 0.4s; }
-        .s3  { top: 42%; left: 2%; animation-delay: 0.8s; }
-        .s4  { bottom: 25%; right: 10%; animation-delay: 1.2s; }
-        .s5  { bottom: 8%; left: 8%; animation-delay: 1.6s; }
-        .s6  { top: 28%; left: 22%; animation-delay: 2.0s; }
-        .s7  { top: 32%; right: 22%; animation-delay: 0.2s; }
-        .s8  { bottom: 38%; left: 16%; animation-delay: 0.6s; }
-        .s9  { top: 10%; right: 28%; animation-delay: 1.0s; }
-        .s10 { bottom: 2%; right: 30%; animation-delay: 1.4s; }
-        .s11 { top: 58%; left: 12%; animation-delay: 1.8s; }
-        .s12 { top: 68%; right: 4%; animation-delay: 2.2s; }
-        .s13 { top: 15%; left: 42%; animation-delay: 0.3s; }
-        .s14 { bottom: 20%; right: 25%; animation-delay: 0.7s; }
-        .s15 { bottom: 45%; left: 28%; animation-delay: 1.1s; }
-        .s16 { top: 82%; right: 38%; animation-delay: 1.5s; }
-        .s17 { top: 2%; left: 58%; animation-delay: 1.9s; }
-        .s18 { top: 52%; right: 48%; animation-delay: 2.3s; }
-        .s19 { bottom: 12%; right: 15%; animation-delay: 0.5s; }
-        .s20 { top: 75%; left: 20%; animation-delay: 1.3s; }
-
-        .glow-bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            height: 90%;
-            background: radial-gradient(circle, rgba(255,215,0,0.25) 0%, rgba(216,131,183,0.15) 50%, transparent 75%);
-            z-index: 1;
-            border-radius: 50%;
-            animation: haloGlow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes haloGlow {
-            0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
-            100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
-        }
-
-        .btn-main {
-            background: var(--accent-green);
-            color: white;
-            border: none;
-            padding: 20px 36px;
-            font-size: clamp(1.05rem, 3.5vw, 1.3rem);
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
             gap: 12px;
-            max-width: 95%;
-            position: relative;
-            z-index: 5;
+            text-decoration: none;
         }
 
-        .btn-main:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 14px 30px rgba(37, 211, 102, 0.55);
+        .brand-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
         }
 
-        .btn-main svg {
-            width: 28px;
-            height: 28px;
-            fill: currentColor;
+        .brand-text {
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Section Layout Common */
-        .section-container {
-            max-width: 750px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+        .brand-logo {
+            font-size: 1.4rem;
             font-weight: 800;
             color: var(--primary);
+            letter-spacing: 1px;
             text-transform: uppercase;
-            margin-bottom: 25px;
-            letter-spacing: 0.5px;
+            line-height: 1;
         }
 
-        /* Benefits Grid */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .benefit-card {
-            background: white;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-light);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .benefit-img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-        }
-
-        .benefit-info {
-            padding: 12px 10px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .benefit-info h3 {
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-transform: uppercase;
-            line-height: 1.25;
-            margin-bottom: 4px;
-        }
-
-        .benefit-info p {
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            line-height: 1.3;
-        }
-
-        /* Diagram Section - IMAGEN PERFECTAMENTE CENTRADA */
-        .diagram-section {
-            background: #f0d2e4; 
-            border-top: 2px solid #dcb5ce;
-            border-bottom: 2px solid #dcb5ce;
-            padding: 50px 15px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .diagram-header-text {
-            text-align: center;
-            font-size: clamp(1rem, 3.2vw, 1.25rem);
-            font-weight: 800;
-            color: var(--primary);
-            max-width: 800px;
-            margin: 0 auto 35px;
-            line-height: 1.4;
-        }
-
-        .diagram-circular-container {
-            position: relative;
-            max-width: 1250px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Contenedor central alineado */
-        .diagram-center-wrapper {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            margin: 0 auto 30px auto;
-            perspective: 1200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            max-width: 520px;
-        }
-
-        .diagram-3d-stage {
-            position: relative;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform-style: preserve-3d;
-            animation: superFloat3D 7s ease-in-out infinite alternate;
-        }
-
-        .diagram-center-img {
-            max-width: 100%;
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            transform: translateZ(30px);
-            filter: drop-shadow(0 25px 30px rgba(74, 21, 59, 0.4));
-        }
-
-        /* Brillo frontal centrado */
-        .diagram-3d-stage::before {
-            content: '';
-            position: absolute;
-            top: 5%;
-            left: 10%;
-            width: 80%;
-            height: 90%;
-            background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.45) 50%, transparent 60%);
-            border-radius: 30px;
-            pointer-events: none;
-            z-index: 3;
-            transform: translateZ(35px);
-            animation: glossyShine 7s ease-in-out infinite alternate;
-        }
-
-        /* Sombra centradísima en la base */
-        .diagram-3d-shadow {
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%) rotateX(80deg);
-            width: 70%;
-            height: 50px;
-            background: radial-gradient(ellipse at center, rgba(59, 16, 47, 0.65) 0%, rgba(0, 0, 0, 0) 75%);
-            border-radius: 50%;
-            z-index: 0;
-            animation: reactiveShadow 7s ease-in-out infinite alternate;
-        }
-
-        /* Keyframes 3D */
-        @keyframes superFloat3D {
-            0% {
-                transform: translateY(0px) rotateX(2deg) rotateY(-6deg) rotateZ(-1deg);
-            }
-            50% {
-                transform: translateY(-22px) rotateX(-5deg) rotateY(8deg) rotateZ(2deg) scale(1.02);
-            }
-            100% {
-                transform: translateY(-8px) rotateX(6deg) rotateY(-4deg) rotateZ(-1deg);
-            }
-        }
-
-        @keyframes reactiveShadow {
-            0% { transform: translateX(-50%) rotateX(80deg) scale(1); opacity: 0.7; filter: blur(4px); }
-            50% { transform: translateX(-50%) rotateX(80deg) scale(0.75); opacity: 0.35; filter: blur(10px); }
-            100% { transform: translateX(-50%) rotateX(80deg) scale(0.9); opacity: 0.55; filter: blur(6px); }
-        }
-
-        @keyframes glossyShine {
-            0% { opacity: 0.2; transform: translateZ(35px) translateX(-20px); }
-            50% { opacity: 0.8; transform: translateZ(35px) translateX(20px); }
-            100% { opacity: 0.3; transform: translateZ(35px) translateX(-10px); }
-        }
-
-        .diagram-col-left, .diagram-col-right {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            z-index: 2;
-            width: 100%;
-            max-width: 450px;
-            position: relative;
-        }
-
-        .diagram-col-left { margin-bottom: 16px; }
-
-        .diagram-card {
-            border: 2px solid var(--primary);
-            border-radius: 20px;
-            padding: 14px 18px;
-            box-shadow: 0 4px 12px rgba(74, 21, 59, 0.08);
-            text-align: center;
-        }
-
-        .diagram-card.bg-colored { background-color: var(--primary) !important; }
-
-        .diagram-card.bg-colored h4 {
-            color: #ffffff !important;
-            font-weight: 800 !important;
-            font-size: 0.95rem;
-            margin-bottom: 4px;
-        }
-
-        .diagram-card.bg-colored p {
-            color: #ffffff !important;
-            font-weight: 400 !important;
-            font-size: 0.8rem;
-            line-height: 1.35;
-            opacity: 0.95;
-        }
-
-        .diagram-card.bg-white { background-color: #ffffff !important; }
-
-        .diagram-card.bg-white h4 {
-            color: var(--primary) !important;
-            font-weight: 800 !important;
-            font-size: 0.95rem;
-            margin-bottom: 4px;
-        }
-
-        .diagram-card.bg-white p {
-            color: #4a3845 !important;
-            font-weight: 400 !important;
-            font-size: 0.8rem;
-            line-height: 1.35;
-        }
-
-        @media (min-width: 900px) {
-            .diagram-circular-container {
-                display: grid;
-                grid-template-columns: 1fr 500px 1fr;
-                grid-template-areas: "col-left col-center col-right";
-                gap: 20px;
-                align-items: center;
-            }
-
-            .diagram-col-left { grid-area: col-left; text-align: right; margin-bottom: 0; }
-            .diagram-center-wrapper { grid-area: col-center; margin-bottom: 0; max-width: 520px; }
-            .diagram-col-right { grid-area: col-right; text-align: left; }
-
-            .diagram-col-left .diagram-card { text-align: right; }
-            .diagram-col-right .diagram-card { text-align: left; }
-        }
-
-        .diagram-footnote {
-            text-align: center;
-            font-size: 0.88rem;
-            color: var(--primary);
-            margin-top: 35px;
-            font-style: italic;
+        .brand-slogan {
+            font-size: 0.68rem;
             font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 3px;
         }
 
-        /* Sources Section */
-        .sources-section {
-            background: linear-gradient(180deg, #3b102f 0%, #2b0b23 100%);
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, #1e3d1a 0%, #2d5a27 100%);
             color: white;
             padding: 60px 20px;
             text-align: center;
         }
 
-        .sources-section h2 {
-            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 800;
-            text-transform: uppercase;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            letter-spacing: 0.5px;
-            line-height: 1.3;
+            margin-bottom: 12px;
+            line-height: 1.2;
         }
 
-        .sources-icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .source-icon-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .source-icon-svg {
-            width: 44px;
-            height: 44px;
-            stroke: #ffffff;
-            fill: none;
-            stroke-width: 1.8;
-        }
-
-        .source-icon-item span {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .hero p {
+            font-size: clamp(0.95rem, 2vw, 1.15rem);
             opacity: 0.9;
+            font-weight: 400;
         }
 
-        .extra-ingredients-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            max-width: 800px;
+        /* Main Catalog Section */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
+            padding: 50px 20px;
         }
 
-        @media (max-width: 500px) {
-            .extra-ingredients-grid { gap: 10px; }
-        }
-
-        .extra-ing-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: var(--radius-md);
-            padding: 20px 15px;
-            backdrop-filter: blur(5px);
-            text-align: left;
-        }
-
-        .extra-ing-icon {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .extra-ing-card h3 {
-            font-size: 0.9rem;
-            font-weight: 800;
-            margin-bottom: 6px;
-            color: #ffffff;
-            text-transform: uppercase;
-        }
-
-        .extra-ing-card p {
-            font-size: 0.78rem;
-            color: #d2c5ce;
-            line-height: 1.4;
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            padding: 50px 12px;
-            background: var(--bg-cream);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        .testimonial-card {
-            background: white;
-            border-radius: var(--radius-md);
-            padding: 16px 12px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-light);
+        .section-header {
+            margin-bottom: 35px;
             text-align: center;
         }
 
-        .avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 8px;
-            border: 2px solid var(--accent-pink);
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .stars {
-            color: #ffb800;
-            font-size: 0.85rem;
+        .section-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Grid de Productos */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 340px));
+            gap: 30px;
+            justify-content: center;
+        }
+
+        /* Card de Producto */
+        .product-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .badge-new {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+
+        .product-image-container {
+            width: 100%;
+            height: 280px;
+            background: #f7f3f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .product-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.04);
+        }
+
+        .product-details {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             margin-bottom: 6px;
         }
 
-        .testimonial-text {
-            font-size: 0.78rem;
+        .product-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .product-description {
+            font-size: 0.85rem;
             color: var(--text-muted);
-            font-style: italic;
-            line-height: 1.35;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        .product-action {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+        }
+
+        .btn-view {
+            background: var(--primary);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 10px 18px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background 0.2s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .product-card:hover .btn-view {
+            background: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: #ffffff;
+            border-top: 1px solid var(--border);
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo {
+            height: 35px;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navbar -->
+    <!-- Header -->
     <header>
-        <div class="logo">
-            <span class="logo-dot"></span> Multi Collagen
+        <div class="header-container">
+            <a href="https://elisana.store/" class="brand">
+                <img src="./logo Eli.png" alt="ELISANA Logo" class="brand-img">
+                <div class="brand-text">
+                    <span class="brand-logo">ELISANA</span>
+                    <span class="brand-slogan">Naturaleza que Sana</span>
+                </div>
+            </a>
         </div>
-        <nav>
-            <a href="#inicio">INICIO</a>
-            <a href="#beneficios">BENEFICIOS</a>
-            <a href="#colageno">FÓRMULA</a>
-            <a href="#resenas">RESEÑAS</a>
-        </nav>
-        <button class="mobile-menu-btn" aria-label="Abrir menú">☰</button>
     </header>
 
     <!-- Hero Banner -->
-    <section class="hero" id="inicio">
-        <h1>Transforma tu Piel, Cabello y Salud con 5 Tipos de Colágeno</h1>
-        <p class="hero-subtitle">Fórmula avanzada con Biotina, Vitamina C y Ácido Hialurónico de origen ético y sostenible.</p>
-        
-        <!-- Imagen Hero -->
-        <div class="hero-img-container">
-            <div class="glow-bg"></div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bienvenido a ELISANA</h1>
+            <p>Descubre soluciones naturales formuladas para restaurar tu bienestar y vitalidad desde adentro hacia afuera.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="section-header">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <p class="section-subtitle">Fórmulas avanzadas seleccionadas para tu salud integral</p>
+        </div>
+
+        <div class="products-grid">
             
-            <div class="sparkles-container">
-                <span class="sparkle-item s1 sz-md">✨</span>
-                <span class="sparkle-item s2 sz-sm">⭐</span>
-                <span class="sparkle-item s3 sz-lg">🌟</span>
-                <span class="sparkle-item s4 sz-sm">✨</span>
-                <span class="sparkle-item s5 sz-md">⭐</span>
-                <span class="sparkle-item s6 sz-sm">✨</span>
-                <span class="sparkle-item s7 sz-lg">🌟</span>
-                <span class="sparkle-item s8 sz-sm">⭐</span>
-                <span class="sparkle-item s9 sz-md">✨</span>
-                <span class="sparkle-item s10 sz-lg">🌟</span>
-                <span class="sparkle-item s11 sz-sm">⭐</span>
-                <span class="sparkle-item s12 sz-md">✨</span>
-                <span class="sparkle-item s13 sz-sm">✨</span>
-                <span class="sparkle-item s14 sz-md">⭐</span>
-                <span class="sparkle-item s15 sz-lg">🌟</span>
-                <span class="sparkle-item s16 sz-sm">⭐</span>
-                <span class="sparkle-item s17 sz-md">✨</span>
-                <span class="sparkle-item s18 sz-sm">⭐</span>
-                <span class="sparkle-item s19 sz-md">✨</span>
-                <span class="sparkle-item s20 sz-sm">🌟</span>
-            </div>
-
-            <img src="https://scontent.xx.fbcdn.net/v/t39.105495-1/764693656_2125508275023617_4486141383869137402_n.webp?_nc_ht=scontent.xx.fbcdn.net&_nc_cat=105&_nc_ohc=uMDcPxRcR_cQ7kNvwFKWe2r&sdl=0&ccb=14-4&oh=00_AQFJ4w98hhX77K4zfijmC-Ta_QlhgRwDVAUY7i_nYYrBZA&oe=6A784950&_nc_sid=a21977" alt="Multi Collagen Peptides" class="hero-product-img">
-        </div>
-
-        <div>
-            <a href="https://wa.me/1234567890?text=Hola,%20quiero%20más%20información%20sobre%20el%20Multi%20Collagen" class="btn-main" target="_blank">
-                <svg viewBox="0 0 448 512">
-                    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-117zm-157 338.7c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 358.7l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.6-2.8-23.5-8.7-44.7-27.6-16.5-14.7-27.6-32.8-30.9-38.4-3.2-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.6-6.5 8.3-9.7 2.8-3.2 3.7-5.6 5.6-9.2 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.7 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-                </svg>
-                Pedir por WhatsApp
+            <!-- Producto 1: Multi Collagen Peptides -->
+            <a href="https://elisana.store/Multi-Collagen-Peptides/" class="product-card">
+                <span class="badge-new">Destacado</span>
+                <div class="product-image-container">
+                    <img src="https://i.ibb.co/qZbyG9k/763298616-1048934630867909-5532902024130268038-n-1.png" alt="Multi Collagen Peptides" class="product-image">
+                </div>
+                <div class="product-details">
+                    <span class="product-category">Suplemento Nutricional</span>
+                    <h3 class="product-title">Multi Collagen Peptides</h3>
+                    <p class="product-description">Fórmula avanzada con 5 tipos de péptidos de colágeno, Biotina, Vitamina C y Ácido Hialurónico.</p>
+                    <div class="product-action">
+                        <span class="btn-view">Ver Producto</span>
+                    </div>
+                </div>
             </a>
+
         </div>
-    </section>
+    </main>
 
-    <!-- Benefits Grid Section -->
-    <section class="section-container" id="beneficios">
-        <h2 class="section-title">Beneficios Integrales Para Tu Bienestar</h2>
-        
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <img src="https://www.fmdos.cl/wp-content/uploads/2021/10/piel-iluminada.jpg" alt="Piel Radiante" class="benefit-img">
-                <div class="benefit-info">
-                    <h3>Piel Firme y Radiante</h3>
-                    <p>Estimula la elasticidad natural y atenúa líneas de expresión.</p>
-                </div>
-            </div>
-
-            <div class="benefit-card">
-                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=500&q=80" alt="Movilidad Sin Dolor" class="benefit-img">
-                <div class="benefit-info">
-                    <h3>Articulaciones Fuertes</h3>
-                    <p>Soporte clave para la salud de cartílagos, huesos y flexibilidad diaria.</p>
-                </div>
-            </div>
-
-            <div class="benefit-card">
-                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&q=80" alt="Cabello Fuerte" class="benefit-img">
-                <div class="benefit-info">
-                    <h3>Cabello Abundante</h3>
-                    <p>Refuerza el folículo piloso gracias a la Biotina para mayor volumen.</p>
-                </div>
-            </div>
-
-            <div class="benefit-card">
-                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=500&q=80" alt="Uñas Resistentes" class="benefit-img">
-                <div class="benefit-info">
-                    <h3>Uñas y Digestión</h3>
-                    <p>Acelera el crecimiento de uñas y fortalece el revestimiento intestinal.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Diagram Collagen Types Section -->
-    <section class="diagram-section" id="colageno">
-        <div class="diagram-header-text">
-            Péptidos de colágeno multi-fuente hidrolizados de origen animal criado en pasturas y membrana de cáscara de huevo.
-        </div>
-
-        <div class="diagram-circular-container">
-            <!-- Escenario 3D Centrado -->
-            <div class="diagram-center-wrapper">
-                <div class="diagram-3d-stage">
-                    <img src="https://i.ibb.co/qZbyG9k/763298616-1048934630867909-5532902024130268038-n-1.png" alt="Multi Collagen Bag" class="diagram-center-img">
-                    <div class="diagram-3d-shadow"></div>
-                </div>
-            </div>
-
-            <!-- Columna Izquierda -->
-            <div class="diagram-col-left">
-                <div class="diagram-card bg-colored">
-                    <h4>Colágeno Tipo I</h4>
-                    <p>Principal bloque de construcción de la piel, uñas y tejidos conectivos.</p>
-                </div>
-                <div class="diagram-card bg-white">
-                    <h4>Vitamina C Activa</h4>
-                    <p>Catalizador biológico que estimula la síntesis natural de colágeno.</p>
-                </div>
-                <div class="diagram-card bg-colored">
-                    <h4>Ácido Hialurónico</h4>
-                    <p>Retiene la humedad natural para hidratar profundamente la piel y articulaciones.</p>
-                </div>
-                <div class="diagram-card bg-white">
-                    <h4>Biotina (Vitamina B7)</h4>
-                    <p>Fortalece la raíz capilar y combate la fragilidad de las uñas.</p>
-                </div>
-            </div>
-
-            <!-- Columna Derecha -->
-            <div class="diagram-col-right">
-                <div class="diagram-card bg-colored">
-                    <h4>Colágeno Tipo II</h4>
-                    <p>Especializado en la regeneración de cartílagos y movilidad articular.</p>
-                </div>
-                <div class="diagram-card bg-white">
-                    <h4>Colágeno Tipo III</h4>
-                    <p>Aporta firmeza muscular y mantiene el soporte de vasos sanguíneos.</p>
-                </div>
-                <div class="diagram-card bg-colored">
-                    <h4>Colágeno Tipo V</h4>
-                    <p>Favorece el desarrollo celular y la regeneración del cabello.</p>
-                </div>
-                <div class="diagram-card bg-white">
-                    <h4>Colágeno Tipo X</h4>
-                    <p>Promueve la densidad ósea y previene el desgaste articular.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="diagram-footnote">
-            *A diferencia del colágeno común que solo incluye 2 tipos, nuestra mezcla ofrece 5 tipos de espectro completo.
-        </div>
-    </section>
-
-    <!-- Multi-Source Dark Section -->
-    <section class="sources-section">
-        <h2>Ingredientes De Calidad Superior Con Sello De Pureza</h2>
-
-        <div class="sources-icons">
-            <div class="source-icon-item">
-                <svg class="source-icon-svg" viewBox="0 0 24 24"><path d="M17 19c-1 0-2-1-2-2V8c0-2-2-4-4-4S7 6 7 8v9c0 1-1 2-2 2M7 13h10M9 21v-2M15 21v-2"/></svg>
-                <span>Bovino</span>
-            </div>
-            <div class="source-icon-item">
-                <svg class="source-icon-svg" viewBox="0 0 24 24"><path d="M12 3a4 4 0 0 0-4 4c0 3 2 5 4 7 2-2 4-4 4-7a4 4 0 0 0-4-4zM6 14c-2 2-3 4-3 7h18c0-3-1-5-3-7"/></svg>
-                <span>Pollo</span>
-            </div>
-            <div class="source-icon-item">
-                <svg class="source-icon-svg" viewBox="0 0 24 24"><path d="M2 12s4-5 10-5 10 5 10 5-4 5-10 5S2 12 2 12zm10-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
-                <span>Pescado</span>
-            </div>
-            <div class="source-icon-item">
-                <svg class="source-icon-svg" viewBox="0 0 24 24"><path d="M12 2C8 2 5 8 5 14a7 7 0 0 0 14 0c0-6-3-12-7-12z"/></svg>
-                <span>Huevo</span>
-            </div>
-        </div>
-
-        <div class="extra-ingredients-grid">
-            <div class="extra-ing-card">
-                <span class="extra-ing-icon">🌱</span>
-                <h3>100% Pureza Garantizada</h3>
-                <p>Libre de soya, lácteos, gluten, nueces y conservantes. Sin aditivos ni transgénicos (OGM).</p>
-            </div>
-            <div class="extra-ing-card">
-                <span class="extra-ing-icon">🌾</span>
-                <h3>Crianza Ética en Pasturas</h3>
-                <p>Proviene de animales alimentados naturally con pasto, garantizando la máxima calidad.</p>
-            </div>
-            <div class="extra-ing-card">
-                <span class="extra-ing-icon">☕</span>
-                <h3>Fácil Disolución Sin Sabor</h3>
-                <p>Polvo hidrolizado de rápida mezcla. Ideal para tomarlo con tu café, té, agua o batido preferido.</p>
-            </div>
-            <div class="extra-ing-card">
-                <span class="extra-ing-icon">🔬</span>
-                <h3>Calidad Asegurada</h3>
-                <p>Sometido a pruebas de laboratorio para asegurar potencia, pureza y máxima absorción.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section" id="resenas">
-        <h2 class="section-title">Testimonios Reales</h2>
-
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Cliente" class="avatar">
-                <div class="stars">★★★★★</div>
-                <p class="testimonial-text">"Mi piel cambió por completo en semanas. Se siente mucho más suave, elástica e hidratada."</p>
-            </div>
-
-            <div class="testimonial-card">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Cliente" class="avatar">
-                <div class="stars">★★★★★</div>
-                <p class="testimonial-text">"Sufro de molestias en las rodillas por el ejercicio y desde que lo tomo la recuperación es notable."</p>
-            </div>
-
-            <div class="testimonial-card">
-                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Cliente" class="avatar">
-                <div class="stars">★★★★★</div>
-                <p class="testimonial-text">"Mis uñas ya no se quiebran y noto mi cabello con mucho más volumen. ¡Totalmente recomendado!"</p>
-            </div>
-
-            <div class="testimonial-card">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Cliente" class="avatar">
-                <div class="stars">★★★★★</div>
-                <p class="testimonial-text">"Se disuelve facilísimo en el café de la mañana sin cambiarle el sabor. Mis articulaciones lo agradecen."</p>
-            </div>
-        </div>
-    </section>
+    <!-- Footer -->
+    <footer>
+        <img src="./logo Eli.png" alt="ELISANA Logo" class="footer-logo">
+        <p>&copy; 2026 ELISANA - Naturaleza que Sana. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 </html>
